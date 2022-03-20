@@ -1,16 +1,15 @@
 // import logo from './logo.svg'; Don't need the react logo
 import "./App.css";
+import { Title } from "./components/Title";
+import { Display } from "./components/Display";
+import { Buttons } from "./Buttons";
 
 function App() {
   return (
     <div class="wrapper">
-      <h1>Hi Prank Calculator 😃 Try me, I will prank you</h1>
-
+      <Title />
       <div class="mainParent">
-        <div class="result" id="result">
-          0.00
-        </div>
-
+        <Display />
         {/* <!-- buttons area --> */}
         <div class="items">
           <button class="clear">AC</button>
