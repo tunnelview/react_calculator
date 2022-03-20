@@ -6,9 +6,9 @@ import { Buttons } from "./Buttons";
 
 function App() {
   return (
-    <div class="wrapper">
+    <div className="wrapper">
       <Title />
-      <div class="mainParent">
+      <div className="mainParent">
         <Display />
         {/* <!-- buttons area --> */}
         <div class="items">

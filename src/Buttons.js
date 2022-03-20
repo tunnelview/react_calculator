@@ -70,7 +70,8 @@ export const Buttons = () => {
   return (
     <div className="items">
       {btns.map((btn, i) => (
-        <button className={btn.clsName}>{btn.label}</button>
+        // <button className={btn.clsName}>{btn.label}</button>
+        <button key={i}>{btn.label}</button>
       ))}
     </div>
     //     <div class="mainParent">
