@@ -11,7 +11,24 @@ const App = () => {
   const [textToDisplay, setTexttoDisplay] = useState("0.00");
 
   const handleOnclick = (val) => {
+    if (val === "=") {
+      return onTotal();
+    }
+    if (val === "AC") {
+      return setTexttoDisplay("");
+    }
+    if (val === "C") {
+      const str = textToDisplay.slice(0, -1);
+      return setTexttoDisplay(str);
+    }
+
     setTexttoDisplay(textToDisplay + val);
+  };
+
+  const onTotal = () => {
+    const str = textToDisplay;
+    const ttl = eval(str);
+    setTexttoDisplay(ttl);
   };
 
   return (
