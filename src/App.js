@@ -10,12 +10,17 @@ const App = () => {
   //create useState
   const [textToDisplay, setTexttoDisplay] = useState("0.00");
 
+  const handleOnclick = (val) => {
+    setTexttoDisplay(textToDisplay + val);
+  };
+
   return (
     <div className="wrapper">
       <Title />
       <div className="mainParent">
         <Display textToDisplay={textToDisplay} />
-        <Buttons />
+
+        <Buttons handleOnclick={handleOnclick} />
       </div>
     </div>
   );
