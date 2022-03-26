@@ -14,38 +14,55 @@ const App = () => {
   const [lastOperator, setLastOperator] = useState();
 
   const handleOnclick = (val) => {
-    if (operators.includes(val)) {
+    //
+    if (operators.includes(val) || val === "=") {
+      const lastOperatorIndex = lastOperator
+        ? textToDisplay.lastIndexOf(lastOperator) + 1
+        : 0;
+
+      const firstNumberSet = textToDisplay.slice(0, lastOperatorIndex);
+      const lastNumberSet = textToDisplay.slice(lastOperatorIndex);
+
+      const str = firstNumberSet + parseFloat(lastNumberSet) + val;
+
+      if (val === "=") {
+        return onTotal(str);
+      }
+
+      setTexttoDisplay(str + val);
+
       setLastOperator(val);
+      return;
     }
 
     //handle
     if (val === ".") {
-      if (lastOperator) {
-        // Rewritten version of the code
-        // 1. indext of last operator or 0
-        const lastOperatorIndex = lastOperator
-          ? textToDisplay.lastIndexOf(lastOperator) + 1
-          : 0;
-        const lastNumberSet = textToDisplay.slice(lastOperatorIndex);
-        if (lastNumberSet.includes(".")) {
-          return;
-        }
-        //   const lastOperatorIndex = textToDisplay.lastIndexOf(lastOperator);
-        //   const lastNumberSet = textToDisplay.slice(lastOperator + 1); // last operator will give us the position of the operator and plus 1
-
-        //   if (lastNumberSet.includes(".")) {
-        //     return;
-        //   }
-        // } else {
-        //   if (textToDisplay.includes(".")) {
-        //     return;
-        //   }
+      // if (lastOperator) {
+      // Rewritten version of the code
+      // 1. indext of last operator or 0
+      const lastOperatorIndex = lastOperator
+        ? textToDisplay.lastIndexOf(lastOperator) + 1
+        : 0;
+      const lastNumberSet = textToDisplay.slice(lastOperatorIndex);
+      if (lastNumberSet.includes(".")) {
+        return;
       }
+      //   const lastOperatorIndex = textToDisplay.lastIndexOf(lastOperator);
+      //   const lastNumberSet = textToDisplay.slice(lastOperator + 1); // last operator will give us the position of the operator and plus 1
+
+      //   if (lastNumberSet.includes(".")) {
+      //     return;
+      //   }
+      // } else {
+      //   if (textToDisplay.includes(".")) {
+      //     return;
+      //   }
+      // }
     }
 
-    if (val === "=") {
-      return onTotal();
-    }
+    // if (val === "=") {
+    //   return onTotal();
+    // }
     if (val === "AC") {
       return setTexttoDisplay("");
     }
@@ -66,12 +83,12 @@ const App = () => {
     setTexttoDisplay(textToDisplay + val);
   };
 
-  const onTotal = () => {
-    let str = textToDisplay;
+  const onTotal = (str) => {
+    // let str = textToDisplay; We don't need this line as we already receiving argument in line 86
     const lastChar = str.slice(-1); // this is to get the last character
 
     if (operators.includes(lastChar)) {
-      str.str.slice(0 - 1);
+      str = str.slice(0 - 1);
     }
     const ttl = eval(str);
     setTexttoDisplay(ttl.toString());
