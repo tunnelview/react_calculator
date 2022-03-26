@@ -7,7 +7,7 @@ const btns = [
   },
   {
     label: "C",
-    clsName: "clear",
+    clsName: "clean",
   },
   {
     label: "/",
@@ -30,6 +30,10 @@ const btns = [
     clsName: "nine",
   },
   {
+    label: "+",
+    clsName: "plus",
+  },
+  {
     label: "4",
     clsName: "four",
   },
@@ -38,6 +42,11 @@ const btns = [
     clsName: "five",
   },
   { label: "6", clsName: "six" },
+
+  {
+    label: "-",
+    clsName: "minus",
+  },
 
   {
     label: "1",
@@ -53,16 +62,16 @@ const btns = [
     clsName: "three",
   },
   {
+    label: "=",
+    clsName: "ans",
+  },
+  {
     label: ".",
     clsName: "dot",
   },
   {
     label: "0",
     clsName: "zero",
-  },
-  {
-    label: "=",
-    clsName: "ans",
   },
 ];
 
@@ -73,7 +82,7 @@ export const Buttons = ({ handleOnclick }) => {
         // <button className={btn.clsName}>{btn.label}</button>
         <button
           key={i}
-          className="{btn.clsName}"
+          className={btn.clsName}
           onClick={() => handleOnclick(btn.label)}
           //   in line 77 the anonymous function is implemented to hold the function, not invoke the data straight away.
         >

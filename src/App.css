@@ -55,7 +55,7 @@ body {
   margin-top: 1rem;
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
     "clear clean divide multi"
     "no7 no8 no9 plus"
@@ -128,7 +128,7 @@ body {
 .no-3 {
   grid-area: no3;
 }
-.no-0 {
+.zero {
   grid-area: no0;
 }
 .dot {
